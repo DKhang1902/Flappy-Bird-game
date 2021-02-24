@@ -1,7 +1,7 @@
 import pygame, random
 
 screen = pygame.display.set_mode((288, 512))
-pygame.display.set_caption("Flappy Bird (Khang's version)")
+pygame.display.set_caption("Flappy Bird")
 run = True
 floor_movement = 0
 gravity = 0.08
@@ -19,26 +19,26 @@ pygame.time.set_timer(SPAWNPIPE, 1200)
 FLAPPING = pygame.USEREVENT + 1
 pygame.time.set_timer(FLAPPING, 200)
 
-bird_surface = pygame.image.load('/Users/buikhang/PycharmProjects/FlappyBird/flappy-bird-assets-master/sprites/yellowbird-midflap.png').convert()
+bird_surface = pygame.image.load('flappy-bird-assets-master/sprites/yellowbird-midflap.png').convert()
 bird_rect = bird_surface.get_rect(center=(50, 256))
 
-icon = pygame.image.load("/Users/buikhang/PycharmProjects/FlappyBird/220px-Flappy_Bird_icon.png")
+icon = pygame.image.load("220px-Flappy_Bird_icon.png")
 pygame.display.set_icon(icon)
 
-bg_surface = pygame.image.load('/Users/buikhang/PycharmProjects/FlappyBird/flappy-bird-assets-master/sprites/background-day.png').convert()
-base_surface = pygame.image.load('/Users/buikhang/PycharmProjects/FlappyBird/flappy-bird-assets-master/sprites/base.png').convert()
+bg_surface = pygame.image.load('flappy-bird-assets-master/sprites/background-day.png').convert()
+base_surface = pygame.image.load('flappy-bird-assets-master/sprites/base.png').convert()
 
-pipe_surface = pygame.image.load('/Users/buikhang/PycharmProjects/FlappyBird/flappy-bird-assets-master/sprites/pipe-green.png').convert()
+pipe_surface = pygame.image.load('flappy-bird-assets-master/sprites/pipe-green.png').convert()
 
-score_font = pygame.font.Font("/Users/buikhang/PycharmProjects/FlappyBird/04b_19/04B_19__.TTF", 25)
+score_font = pygame.font.Font("04b_19/04B_19__.TTF", 25)
 
-game_over_surface = pygame.image.load('/Users/buikhang/PycharmProjects/FlappyBird/flappy-bird-assets-master/sprites/message.png').convert_alpha()
+game_over_surface = pygame.image.load('flappy-bird-assets-master/sprites/message.png').convert_alpha()
 gameover_rect = game_over_surface.get_rect(center=(144,256))
 
-hit_sound = pygame.mixer.Sound("/Users/buikhang/PycharmProjects/FlappyBird/flappy-bird-assets-master/audio/hit.wav")
-flap_sound = pygame.mixer.Sound("/Users/buikhang/PycharmProjects/FlappyBird/flappy-bird-assets-master/audio/wing.wav")
-point_sound = pygame.mixer.Sound("/Users/buikhang/PycharmProjects/FlappyBird/flappy-bird-assets-master/audio/point.wav")
-death_sound = pygame.mixer.Sound("/Users/buikhang/PycharmProjects/FlappyBird/flappy-bird-assets-master/audio/die.wav")
+hit_sound = pygame.mixer.Sound("flappy-bird-assets-master/audio/hit.wav")
+flap_sound = pygame.mixer.Sound("flappy-bird-assets-master/audio/wing.wav")
+point_sound = pygame.mixer.Sound("flappy-bird-assets-master/audio/point.wav")
+death_sound = pygame.mixer.Sound("flappy-bird-assets-master/audio/die.wav")
 
 def dispaly_score(score):
     score_surface = score_font.render(f"Score: {str(score)}", True, (255,255,255))
@@ -119,13 +119,13 @@ while run:
             list_of_pipes.extend(create_pipe(pipe_random_heights))
         if event.type == FLAPPING:
             if count % 3 == 0:
-                 bird_surface = pygame.image.load('/Users/buikhang/PycharmProjects/FlappyBird/flappy-bird-assets-master/sprites/yellowbird-midflap.png').convert()
+                 bird_surface = pygame.image.load('flappy-bird-assets-master/sprites/yellowbird-midflap.png').convert()
                  count += 1
             elif count % 3 == 1:
-                bird_surface = pygame.image.load('/Users/buikhang/PycharmProjects/FlappyBird/flappy-bird-assets-master/sprites/yellowbird-upflap.png').convert()
+                bird_surface = pygame.image.load('flappy-bird-assets-master/sprites/yellowbird-upflap.png').convert()
                 count += 1
             elif count % 3 == 2:
-                bird_surface = pygame.image.load('/Users/buikhang/PycharmProjects/FlappyBird/flappy-bird-assets-master/sprites/yellowbird-downflap.png').convert()
+                bird_surface = pygame.image.load('flappy-bird-assets-master/sprites/yellowbird-downflap.png').convert()
                 count += 1
 
     screen.blit(bg_surface, (0, 0))
